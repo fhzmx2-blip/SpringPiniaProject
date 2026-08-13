@@ -38,10 +38,10 @@ const useRecipeStore=defineStore('recipe_list',{
 		setPageData(data)
 		{
 			this.list=data.list
-			this.curpage=data.curpage
-			this.totalpage=data.totalpage
-			this.startPage=data.startPage
-			this.endPage=data.endPage
+			this.curpage=data.pages[0]
+			this.totalpage=data.pages[1]
+			this.startPage=data.pages[2]
+			this.endPage=data.pages[3]
 			this.count=data.count
 		},
 		move(page){
