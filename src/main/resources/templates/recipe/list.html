@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+   margin-top: 50px;
+}
+.row {
+  margin: 0px auto;
+  width: 960px;
+}
+p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
+<script src="https://unpkg.com/vue@3.3.4/dist/vue.global.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue-demi"></script>
+<script src="https://unpkg.com/pinia@2.1.7/dist/pinia.iife.prod.js"></script>
+</head>
+<body>
+   <div class="container">
+     <div class="row">
+     
+     </div>
+   </div>
+   <script src="/vue/axios.js"></script>
+   <script src="/vue/recipe/recipeStore.js"></script>
+   <script>
+    const {createApp,onMounted,ref} = Vue
+    const {createPinia}=Pinia
+    const recipeApp=createApp({
+    	setup(){
+    		const store=useRecipeStore();
+    		onMounted(()=>{
+    			store.recipeListData()
+    		})
+    	}
+    })
+    recipeApp.use(createPinia())
+    recipeApp.mount(".container")
+   </script>
+</body>
+</html>
